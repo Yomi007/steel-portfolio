@@ -92,7 +92,7 @@ const About = () => {
                     >
                         <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-purple-500/20 rounded-full blur-3xl -z-10" />
                         <img
-                            src="/Abayomi.jpg"
+                            src="/yomi.jpg"
                             alt="Abayomi - Workflow Automation Specialist"
                             className="w-full h-auto rounded-3xl border border-white/10 shadow-2xl grayscale hover:grayscale-0 transition-all duration-700"
                         />
