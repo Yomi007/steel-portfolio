@@ -93,18 +93,6 @@ const Testimonials = () => {
                         </motion.div>
                     ))}
                 </div>
-
-                {/* Note about placeholders - remove this when you add real testimonials */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    className="mt-8 text-center"
-                >
-                    <p className="text-xs text-slate-600 italic">
-                        * These are placeholder testimonials. Replace with real client feedback when available.
-                    </p>
-                </motion.div>
             </div>
         </section>
     );
