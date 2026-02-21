@@ -1,16 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 
 const ProjectModal = ({ isOpen, onClose, project }) => {
-    // Lock body scroll when modal is open
+    const scrollRef = useRef(null);
+
     useEffect(() => {
-        if (isOpen) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
-        return () => { document.body.style.overflow = ''; };
+        const el = scrollRef.current;
+        if (!el || !isOpen) return;
+
+        // Intercept wheel events on the modal at the native DOM level.
+        // Using { passive: false } lets us call preventDefault() so the event
+        // never reaches Lenis (which listens at the document/window level).
+        const handleWheel = (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            el.scrollTop += e.deltaY;
+        };
+
+        el.addEventListener('wheel', handleWheel, { passive: false });
+        return () => el.removeEventListener('wheel', handleWheel);
     }, [isOpen]);
 
     if (!project) return null;
@@ -30,6 +39,7 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
 
                     {/* Modal Content */}
                     <motion.div
+                        ref={scrollRef}
                         initial={{ opacity: 0, scale: 0.95, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: 20 }}

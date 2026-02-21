@@ -22,6 +22,7 @@ export default function SmoothScroll({ children }) {
         })
 
         lenisRef.current = lenis
+        window.__lenis = lenis
 
         // Raf loop
         function raf(time) {
@@ -41,6 +42,7 @@ export default function SmoothScroll({ children }) {
 
         return () => {
             lenis.destroy()
+            window.__lenis = null
         }
     }, [])
 
