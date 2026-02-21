@@ -115,6 +115,91 @@ The first week looked perfect. Then a vendor sent an invoice with a missing tota
         link: "#"
     },
     {
+        id: 4,
+        title: "Business Intake & Outreach Automation",
+        category: "Revenue Operations",
+        image: "/N8N FLOW FOR BUSINESS INTAKE AND OUTREACH.jpg",
+        tools: ["n8n", "Airtable", "Google Drive", "ClickUp", "Make.com"],
+        roi: "35+ hours saved monthly · $7,000 in monthly time value",
+        description: "An intelligent lead qualification system built for a business coach — scores inbound leads, routes them instantly, and handles all follow-up automatically. Zero manual work.",
+        fullDescription: `Spent 3 hours yesterday troubleshooting why my automation wouldn't connect to Airtable.
+
+Double-checked my credentials. Reconfigured everything. Googled every error message.
+
+Then I checked Airtable's status page. It was down. The entire service was just... down.
+
+This is automation. 🙃
+
+---
+
+**THE PROBLEM:**
+
+Sarah runs a coaching business. Gets 40-60 discovery call requests every month.
+
+She was spending 3-4 hours DAILY on:
+- Manual lead review
+- Copy-pasting calendar links
+- Creating client folders
+- Logging to spreadsheets
+- Setting follow-up reminders
+
+By the time she responded? Leads had already hired someone else.
+
+---
+
+**THE SOLUTION:**
+
+Someone fills the form → System scores them automatically (0-8 points) → Routes to the right path
+
+🟢 **QUALIFIED (7-8 pts):** Instant Calendly email + Google Drive folder created + logged to Airtable as "Qualified"
+
+🟡 **HIGH-POTENTIAL (4-6 pts):** Alert to Sarah + ClickUp task "Follow up within 24h" + full context included
+
+🔴 **NOT READY (0-3 pts):** Free resource packet sent + added to newsletter nurture + logged as "Unqualified"
+
+Everything happens in seconds. Zero manual work.
+
+---
+
+**THE RESULTS:**
+
+⏱️ 35 hours saved per month
+💰 $7,000 in monthly time value
+📈 100% instant response rate
+✅ Zero lost leads from slow response
+
+Sarah now spends her time coaching, not copy-pasting.
+
+---
+
+**TECH STACK:** n8n · Typeform · Gmail · Airtable · ClickUp · Google Drive
+
+Build time: 3-4 days · System value: $5,000–7,000
+
+---
+
+**LESSONS FROM THE TRENCHES:**
+
+→ Date formatting is case-sensitive (spent an hour debugging "Feb YYYY" instead of "Feb 2026")
+
+→ Sometimes your code isn't broken — the service is just down (looking at you, Airtable)
+
+→ "Run Once for Each Item" vs "Run Once for All Items" will catch you (everything showed [undefined] until I figured this out)
+
+→ Pin your test data early (ran out of Typeform test submissions halfway through)
+
+This was my first major n8n build. Learned the platform from scratch for this project. Worth every frustrating error message.`,
+        gallery: [
+            "/N8N FLOW FOR BUSINESS INTAKE AND OUTREACH.jpg",
+            "/AIRTABLE - WORKFLOW FOR BUSINESS INTAKE AND ONBOARDING.jpg",
+            "/CODE FOR BUSINESS INTAKE AND OUTREACH.jpg",
+            "/GRAPHICS FOR BUSINESS INTAKE AND OUTREACH.jpg",
+            "/GOOGLE DRIVE WORKFLOW FOR BUSINESS INTAKE AND OUTREACH.jpg",
+            "/clickup revised.jpg"
+        ],
+        link: "#"
+    },
+    {
         id: 3,
         title: "Closed-Loop Lead Management System",
         category: "Revenue Operations",

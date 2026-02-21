@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code2, Workflow, Database, Zap, Brain, Layers } from 'lucide-react';
+import { Code2, Workflow, Database, Zap, Brain, Layers, Sparkles } from 'lucide-react';
 
 const skills = [
     {
@@ -51,6 +51,13 @@ const skills = [
         description: 'Web development',
         color: 'from-cyan-500/20 to-blue-500/20',
         borderColor: 'border-cyan-500/20'
+    },
+    {
+        name: 'Vibe Coding',
+        icon: Sparkles,
+        description: 'AI-assisted dev: Antigravity · Claude Code · Codex',
+        color: 'from-emerald-500/20 to-teal-500/20',
+        borderColor: 'border-emerald-500/20'
     }
 ];
 
@@ -72,7 +79,7 @@ const Skills = () => {
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:grid-flow-row">
                     {skills.map((skill, index) => {
                         const Icon = skill.icon;
                         return (

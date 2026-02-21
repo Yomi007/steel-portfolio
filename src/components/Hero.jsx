@@ -24,7 +24,7 @@ const Hero = () => {
 
                     <h1 className="font-heading text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.1] mb-8">
                         Automating the <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-500">
+                        <span className="shimmer-text">
                             boring stuff.
                         </span>
                     </h1>
