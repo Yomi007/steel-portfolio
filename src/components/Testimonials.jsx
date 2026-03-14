@@ -24,7 +24,7 @@ const testimonials = [
     {
         id: 3,
         name: 'David Park',
-        role: 'Revenue Operations Lead  ',
+        role: 'Revenue Operations Lead',
         company: 'SaaS Ventures',
         text: 'The automation Abayomi built saved our team 20+ hours per week. What impressed me most was how he handled edge cases - the system never fails silently.',
         project: 'Workflow Automation',
@@ -34,7 +34,7 @@ const testimonials = [
 
 const Testimonials = () => {
     return (
-        <section className="py-32 px-6 bg-slate-900/50">
+        <section className="py-32 px-6 bg-stone-100/50 dark:bg-stone-900/50">
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -42,10 +42,10 @@ const Testimonials = () => {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <h2 className="font-heading text-4xl md:text-5xl font-bold text-white mb-4">
+                    <h2 className="font-heading text-4xl md:text-5xl font-bold text-stone-900 dark:text-white mb-4">
                         Client Success Stories
                     </h2>
-                    <p className="text-slate-400 max-w-2xl mx-auto">
+                    <p className="text-stone-500 dark:text-stone-400 max-w-2xl mx-auto">
                         Real results from businesses that automated their workflows
                     </p>
                 </motion.div>
@@ -58,37 +58,37 @@ const Testimonials = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="relative p-8 bg-slate-800/50 backdrop-blur-sm rounded-3xl border border-white/5 hover:border-white/10 transition-all duration-300"
+                            className="relative p-8 bg-white/80 dark:bg-stone-800/50 backdrop-blur-sm rounded-3xl border border-stone-200 dark:border-white/5 hover:border-stone-300 dark:hover:border-white/10 transition-all duration-300"
                         >
                             {/* Quote Icon */}
                             <div className="absolute top-6 right-6 opacity-10">
-                                <Quote size={48} className="text-white" />
+                                <Quote size={48} className="text-stone-600 dark:text-white" />
                             </div>
 
                             {/* Rating */}
                             <div className="flex gap-1 mb-4">
                                 {[...Array(testimonial.rating)].map((_, i) => (
-                                    <Star key={i} size={16} className="fill-emerald-400 text-emerald-400" />
+                                    <Star key={i} size={16} className="fill-amber-500 text-amber-500 dark:fill-amber-400 dark:text-amber-400" />
                                 ))}
                             </div>
 
                             {/* Testimonial Text */}
-                            <p className="text-slate-300 mb-6 relative z-10 leading-relaxed">
+                            <p className="text-stone-600 dark:text-stone-300 mb-6 relative z-10 leading-relaxed">
                                 "{testimonial.text}"
                             </p>
 
                             {/* Project Tag */}
                             <div className="mb-4">
-                                <span className="text-xs text-emerald-400 font-medium px-3 py-1 bg-emerald-400/10 rounded-full border border-emerald-400/20">
+                                <span className="text-xs text-amber-700 dark:text-amber-400 font-medium px-3 py-1 bg-amber-100 dark:bg-amber-400/10 rounded-full border border-amber-200 dark:border-amber-400/20">
                                     {testimonial.project}
                                 </span>
                             </div>
 
                             {/* Author */}
-                            <div className="border-t border-white/5 pt-6">
-                                <p className="font-bold text-white">{testimonial.name}</p>
-                                <p className="text-sm text-slate-400">{testimonial.role}</p>
-                                <p className="text-sm text-slate-500">{testimonial.company}</p>
+                            <div className="border-t border-stone-200 dark:border-white/5 pt-6">
+                                <p className="font-bold text-stone-900 dark:text-white">{testimonial.name}</p>
+                                <p className="text-sm text-stone-500 dark:text-stone-400">{testimonial.role}</p>
+                                <p className="text-sm text-stone-400 dark:text-stone-500">{testimonial.company}</p>
                             </div>
                         </motion.div>
                     ))}

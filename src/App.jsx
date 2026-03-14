@@ -9,28 +9,30 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ParticleBackground from './components/ParticleBackground';
 import ErrorBoundary from './components/ErrorBoundary';
-
 import SmoothScroll from './components/SmoothScroll';
+import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
   return (
-    <ErrorBoundary>
-      <SmoothScroll>
-        <div className="bg-slate-950 min-h-screen text-slate-200 font-sans selection:bg-white selection:text-slate-950 relative">
-          <ParticleBackground />
-          <Navbar />
-          <main>
-            <Hero />
-            <Projects />
-            <Skills />
-            <Testimonials />
-            <About />
-            <Contact />
-          </main>
-          <Footer />
-        </div>
-      </SmoothScroll>
-    </ErrorBoundary>
+    <ThemeProvider>
+      <ErrorBoundary>
+        <SmoothScroll>
+          <div className="bg-stone-50 dark:bg-stone-950 min-h-screen text-stone-700 dark:text-stone-300 font-sans selection:bg-amber-500 selection:text-white relative">
+            <ParticleBackground />
+            <Navbar />
+            <main>
+              <Hero />
+              <Projects />
+              <Skills />
+              <Testimonials />
+              <About />
+              <Contact />
+            </main>
+            <Footer />
+          </div>
+        </SmoothScroll>
+      </ErrorBoundary>
+    </ThemeProvider>
   );
 }
 

@@ -15,7 +15,6 @@ const Contact = () => {
         setStatus('loading');
 
         try {
-            // Formspree endpoint - user will replace with their own
             const response = await fetch('https://formspree.io/f/xvzqdown', {
                 method: 'POST',
                 headers: {
@@ -39,9 +38,9 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" className="py-32 px-6 bg-slate-950 relative overflow-hidden">
+        <section id="contact" className="py-32 px-6 bg-stone-50 dark:bg-stone-950 relative overflow-hidden">
             {/* Background decoration */}
-            <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-slate-900 to-transparent pointer-events-none" />
+            <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-stone-100 dark:from-stone-900 to-transparent pointer-events-none" />
 
             <div className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row gap-16">
 
@@ -52,32 +51,32 @@ const Contact = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="font-heading text-6xl md:text-8xl font-bold text-white mb-8 tracking-tighter">
+                        <h2 className="font-heading text-6xl md:text-8xl font-bold text-stone-900 dark:text-white mb-8 tracking-tighter">
                             Let's work <br />
-                            <span className="text-slate-700">together.</span>
+                            <span className="text-stone-300 dark:text-stone-700">together.</span>
                         </h2>
 
-                        <p className="text-slate-400 text-xl mb-12 max-w-md">
+                        <p className="text-stone-500 dark:text-stone-400 text-xl mb-12 max-w-md">
                             Have a project in mind? I'm always open to discussing new ideas and opportunities.
                         </p>
 
                         <div className="space-y-6">
-                            <a href="mailto:yomiautomates@gmail.com" className="flex items-center gap-4 text-white hover:text-blue-400 transition-colors group">
-                                <div className="p-4 bg-slate-900 rounded-full border border-white/5 group-hover:border-blue-500/50 transition-colors">
+                            <a href="mailto:yomiautomates@gmail.com" className="flex items-center gap-4 text-stone-900 dark:text-white hover:text-amber-600 dark:hover:text-amber-400 transition-colors group">
+                                <div className="p-4 bg-stone-100 dark:bg-stone-900 rounded-full border border-stone-200 dark:border-white/5 group-hover:border-amber-500/50 transition-colors">
                                     <Mail size={24} />
                                 </div>
                                 <div>
-                                    <p className="text-sm text-slate-500">Email Me</p>
+                                    <p className="text-sm text-stone-400 dark:text-stone-500">Email Me</p>
                                     <p className="text-lg font-medium">yomiautomates@gmail.com</p>
                                 </div>
                             </a>
 
-                            <div className="flex items-center gap-4 text-white">
-                                <div className="p-4 bg-slate-900 rounded-full border border-white/5">
+                            <div className="flex items-center gap-4 text-stone-900 dark:text-white">
+                                <div className="p-4 bg-stone-100 dark:bg-stone-900 rounded-full border border-stone-200 dark:border-white/5">
                                     <MapPin size={24} />
                                 </div>
                                 <div>
-                                    <p className="text-sm text-slate-500">Location</p>
+                                    <p className="text-sm text-stone-400 dark:text-stone-500">Location</p>
                                     <p className="text-lg font-medium">Remote / Worldwide</p>
                                 </div>
                             </div>
@@ -93,41 +92,41 @@ const Contact = () => {
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
                         onSubmit={handleSubmit}
-                        className="p-8 bg-slate-900/50 backdrop-blur-sm rounded-3xl border border-white/5"
+                        className="p-8 bg-white/80 dark:bg-stone-900/50 backdrop-blur-sm rounded-3xl border border-stone-200 dark:border-white/5"
                     >
                         <div className="space-y-6">
                             <div>
-                                <label className="block text-sm font-medium text-slate-400 mb-2">Name</label>
+                                <label className="block text-sm font-medium text-stone-500 dark:text-stone-400 mb-2">Name</label>
                                 <input
                                     type="text"
                                     required
                                     value={formData.name}
                                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                    className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/10 text-white focus:outline-none focus:border-blue-500 transition-colors"
+                                    className="w-full px-4 py-3 rounded-xl bg-stone-50 dark:bg-stone-950 border border-stone-200 dark:border-white/10 text-stone-900 dark:text-white focus:outline-none focus:border-amber-500 transition-colors"
                                     placeholder="John Doe"
                                 />
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium text-slate-400 mb-2">Email</label>
+                                <label className="block text-sm font-medium text-stone-500 dark:text-stone-400 mb-2">Email</label>
                                 <input
                                     type="email"
                                     required
                                     value={formData.email}
                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                    className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/10 text-white focus:outline-none focus:border-blue-500 transition-colors"
+                                    className="w-full px-4 py-3 rounded-xl bg-stone-50 dark:bg-stone-950 border border-stone-200 dark:border-white/10 text-stone-900 dark:text-white focus:outline-none focus:border-amber-500 transition-colors"
                                     placeholder="john@example.com"
                                 />
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium text-slate-400 mb-2">Message</label>
+                                <label className="block text-sm font-medium text-stone-500 dark:text-stone-400 mb-2">Message</label>
                                 <textarea
                                     rows={4}
                                     required
                                     value={formData.message}
                                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                    className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/10 text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
+                                    className="w-full px-4 py-3 rounded-xl bg-stone-50 dark:bg-stone-950 border border-stone-200 dark:border-white/10 text-stone-900 dark:text-white focus:outline-none focus:border-amber-500 transition-colors resize-none"
                                     placeholder="Tell me about your project..."
                                 />
                             </div>
@@ -135,11 +134,11 @@ const Contact = () => {
                             <button
                                 type="submit"
                                 disabled={status === 'loading'}
-                                className="w-full py-4 bg-white text-slate-950 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-slate-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full py-4 bg-stone-900 dark:bg-white text-stone-50 dark:text-stone-950 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-stone-800 dark:hover:bg-stone-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                             >
                                 {status === 'loading' && (
                                     <>
-                                        <div className="w-5 h-5 border-2 border-slate-950 border-t-transparent rounded-full animate-spin" />
+                                        <div className="w-5 h-5 border-2 border-stone-50 dark:border-stone-950 border-t-transparent rounded-full animate-spin" />
                                         Sending...
                                     </>
                                 )}
@@ -168,7 +167,7 @@ const Contact = () => {
                                 <motion.p
                                     initial={{ opacity: 0, y: -10 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    className="text-emerald-400 text-sm text-center"
+                                    className="text-amber-600 dark:text-amber-400 text-sm text-center"
                                 >
                                     Thanks! I'll get back to you soon.
                                 </motion.p>
@@ -177,7 +176,7 @@ const Contact = () => {
                                 <motion.p
                                     initial={{ opacity: 0, y: -10 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    className="text-red-400 text-sm text-center"
+                                    className="text-red-500 dark:text-red-400 text-sm text-center"
                                 >
                                     Oops! Something went wrong. Please email me directly at yomiautomates@gmail.com
                                 </motion.p>

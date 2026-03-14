@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, ArrowRight } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import ProjectModal from './ProjectModal';
 import Counter from './Counter';
 
@@ -118,7 +118,7 @@ The first week looked perfect. Then a vendor sent an invoice with a missing tota
         id: 4,
         title: "Business Intake & Outreach Automation",
         category: "Revenue Operations",
-        image: "/N8N FLOW FOR BUSINESS INTAKE AND OUTREACH.jpg",
+        image: "/n8n-flow-business-intake.jpg",
         tools: ["n8n", "Airtable", "Google Drive", "ClickUp", "Make.com"],
         roi: "35+ hours saved monthly · $7,000 in monthly time value",
         description: "An intelligent lead qualification system built for a business coach — scores inbound leads, routes them instantly, and handles all follow-up automatically. Zero manual work.",
@@ -190,12 +190,12 @@ Build time: 3-4 days · System value: $5,000–7,000
 
 This was my first major n8n build. Learned the platform from scratch for this project. Worth every frustrating error message.`,
         gallery: [
-            "/N8N FLOW FOR BUSINESS INTAKE AND OUTREACH.jpg",
-            "/AIRTABLE - WORKFLOW FOR BUSINESS INTAKE AND ONBOARDING.jpg",
-            "/CODE FOR BUSINESS INTAKE AND OUTREACH.jpg",
-            "/GRAPHICS FOR BUSINESS INTAKE AND OUTREACH.jpg",
-            "/GOOGLE DRIVE WORKFLOW FOR BUSINESS INTAKE AND OUTREACH.jpg",
-            "/clickup revised.jpg"
+            "/n8n-flow-business-intake.jpg",
+            "/airtable-workflow-business-intake.jpg",
+            "/code-business-intake.jpg",
+            "/graphics-business-intake.jpg",
+            "/google-drive-workflow-business-intake.jpg",
+            "/clickup-revised.jpg"
         ],
         link: "#"
     },
@@ -239,7 +239,7 @@ This demonstrates how businesses can solve complex data challenges using conditi
         gallery: [
             "/third_logic.jpg",
             "/third_airtable.jpg",
-            "/Third_mailchimp.jpg",
+            "/third-mailchimp.jpg",
             "/third_result.jpg",
             "/third_filter.jpg"
         ],
@@ -251,7 +251,7 @@ const Projects = () => {
     const [selectedProject, setSelectedProject] = useState(null);
 
     return (
-        <section id="work" className="py-32 px-6 bg-slate-950">
+        <section id="work" className="py-32 px-6 bg-stone-50 dark:bg-stone-950">
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -260,17 +260,14 @@ const Projects = () => {
                     className="flex items-end justify-between mb-16"
                 >
                     <div>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-white mb-4">Selected Workflows</h2>
-                        <p className="text-slate-400 max-w-lg">
+                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-stone-900 dark:text-white mb-4">Selected Workflows</h2>
+                        <p className="text-stone-500 dark:text-stone-400 max-w-lg">
                             Examples of automated systems that drive efficiency and reduce error.
                         </p>
                     </div>
-                    <button className="hidden md:flex items-center gap-2 text-white hover:text-slate-300 transition-colors">
-                        View all workflows <ArrowRight size={20} />
-                    </button>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {projects.map((project, index) => (
                         <motion.div
                             key={project.id}
@@ -280,15 +277,16 @@ const Projects = () => {
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
                             onClick={() => setSelectedProject(project)}
-                            className="group relative bg-slate-800 rounded-3xl overflow-hidden border border-white/5 hover:border-white/10 transition-colors flex flex-col cursor-pointer hover:shadow-2xl hover:shadow-emerald-500/10"
+                            className="group relative bg-white dark:bg-stone-800 rounded-3xl overflow-hidden border border-stone-200 dark:border-white/5 hover:border-stone-300 dark:hover:border-white/10 transition-colors flex flex-col cursor-pointer hover:shadow-2xl hover:shadow-amber-500/10"
                         >
                             {/* Image Container */}
                             <div className="relative overflow-hidden h-48 w-full">
-                                <div className="absolute inset-0 bg-gradient-to-br from-slate-900/20 to-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+                                <div className="absolute inset-0 bg-gradient-to-br from-stone-900/20 to-stone-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
                                 <img
                                     src={project.image}
                                     alt={`${project.title} - ${project.category} workflow automation screenshot`}
-                                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 hover:grayscale-0 grayscale-0"
+                                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                                    loading="lazy"
                                 />
                                 <div className="absolute top-4 left-4 z-20">
                                     <span className="px-3 py-1 text-xs font-medium text-white bg-black/50 backdrop-blur-md rounded-full border border-white/10">
@@ -301,25 +299,25 @@ const Projects = () => {
                             <div className="p-8 flex flex-col flex-grow">
                                 <div className="flex flex-wrap gap-2 mb-4">
                                     {project.tools.map(t => (
-                                        <span key={t} className="px-3 py-1 text-xs font-medium text-slate-300 bg-white/5 rounded-full border border-white/5">
+                                        <span key={t} className="px-3 py-1 text-xs font-medium text-stone-600 dark:text-stone-300 bg-stone-100 dark:bg-white/5 rounded-full border border-stone-200 dark:border-white/5">
                                             {t}
                                         </span>
                                     ))}
                                 </div>
 
-                                <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-slate-200 transition-colors">
+                                <h3 className="text-2xl font-bold text-stone-900 dark:text-white mb-2 group-hover:text-stone-700 dark:group-hover:text-stone-200 transition-colors">
                                     {project.title}
                                 </h3>
-                                <p className="text-slate-400 text-sm mb-6 line-clamp-3">
+                                <p className="text-stone-500 dark:text-stone-400 text-sm mb-6 line-clamp-3">
                                     {project.description}
                                 </p>
 
-                                <div className="mt-auto pt-4 border-t border-white/5">
-                                    <p className="text-emerald-400 font-bold mb-4">
+                                <div className="mt-auto pt-4 border-t border-stone-200 dark:border-white/5">
+                                    <p className="text-amber-600 dark:text-amber-400 font-bold mb-4">
                                         <ROIDisplay roi={project.roi} />
                                     </p>
                                     <div className="flex items-center gap-4">
-                                        <button className="flex items-center gap-2 text-sm font-medium text-white hover:underline decoration-white/30 underline-offset-4 pointer-events-none">
+                                        <button className="flex items-center gap-2 text-sm font-medium text-stone-900 dark:text-white hover:underline decoration-stone-300 dark:decoration-white/30 underline-offset-4 pointer-events-none">
                                             View Project <ExternalLink size={14} />
                                         </button>
                                     </div>

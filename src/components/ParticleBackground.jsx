@@ -1,9 +1,17 @@
 import React, { useEffect, useRef } from 'react';
+import { useTheme } from '../context/ThemeContext';
 
 const ParticleBackground = () => {
     const canvasRef = useRef(null);
     const mouseRef = useRef({ x: 0, y: 0 });
     const particlesRef = useRef([]);
+    const { isDark } = useTheme();
+    const isDarkRef = useRef(isDark);
+
+    // Keep ref in sync with state
+    useEffect(() => {
+        isDarkRef.current = isDark;
+    }, [isDark]);
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -12,7 +20,6 @@ const ParticleBackground = () => {
         const ctx = canvas.getContext('2d');
         let animationFrameId;
 
-        // Set canvas size
         const resizeCanvas = () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
@@ -20,7 +27,6 @@ const ParticleBackground = () => {
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
 
-        // Particle class
         class Particle {
             constructor(x, y) {
                 this.x = x;
@@ -33,7 +39,6 @@ const ParticleBackground = () => {
             }
 
             update(mouseX, mouseY) {
-                // Mouse interaction
                 const dx = mouseX - this.x;
                 const dy = mouseY - this.y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
@@ -46,31 +51,29 @@ const ParticleBackground = () => {
                     this.vy += Math.sin(angle) * force * 0.05;
                 }
 
-                // Return to base position
                 this.vx += (this.baseX - this.x) * 0.01;
                 this.vy += (this.baseY - this.y) * 0.01;
-
-                // Apply velocity with damping
                 this.vx *= 0.95;
                 this.vy *= 0.95;
-
                 this.x += this.vx;
                 this.y += this.vy;
             }
 
             draw(ctx) {
-                ctx.fillStyle = 'rgba(148, 163, 184, 0.3)'; // slate-400 with low opacity
+                // Warm Carbon: stone-400 tones, darker in light mode, lighter in dark mode
+                const color = isDarkRef.current
+                    ? 'rgba(168, 162, 158, 0.3)'  // stone-400 for dark mode
+                    : 'rgba(120, 113, 108, 0.2)';  // stone-500 for light mode
+                ctx.fillStyle = color;
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
                 ctx.fill();
             }
         }
 
-        // Initialize particles
         const initParticles = () => {
             particlesRef.current = [];
             const particleCount = Math.floor((canvas.width * canvas.height) / 15000);
-
             for (let i = 0; i < particleCount; i++) {
                 const x = Math.random() * canvas.width;
                 const y = Math.random() * canvas.height;
@@ -79,14 +82,12 @@ const ParticleBackground = () => {
         };
         initParticles();
 
-        // Mouse move handler
         const handleMouseMove = (e) => {
             mouseRef.current.x = e.clientX;
             mouseRef.current.y = e.clientY;
         };
         window.addEventListener('mousemove', handleMouseMove);
 
-        // Connect particles with lines
         const connectParticles = () => {
             const maxDistance = 120;
             for (let i = 0; i < particlesRef.current.length; i++) {
@@ -96,8 +97,11 @@ const ParticleBackground = () => {
                     const distance = Math.sqrt(dx * dx + dy * dy);
 
                     if (distance < maxDistance) {
-                        const opacity = (1 - distance / maxDistance) * 0.15;
-                        ctx.strokeStyle = `rgba(148, 163, 184, ${opacity})`;
+                        const opacity = (1 - distance / maxDistance) * (isDarkRef.current ? 0.15 : 0.08);
+                        const color = isDarkRef.current
+                            ? `rgba(168, 162, 158, ${opacity})`
+                            : `rgba(120, 113, 108, ${opacity})`;
+                        ctx.strokeStyle = color;
                         ctx.lineWidth = 0.5;
                         ctx.beginPath();
                         ctx.moveTo(particlesRef.current[i].x, particlesRef.current[i].y);
@@ -108,7 +112,6 @@ const ParticleBackground = () => {
             }
         };
 
-        // Animation loop
         const animate = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -123,7 +126,6 @@ const ParticleBackground = () => {
         };
         animate();
 
-        // Cleanup
         return () => {
             window.removeEventListener('resize', resizeCanvas);
             window.removeEventListener('mousemove', handleMouseMove);
@@ -136,6 +138,7 @@ const ParticleBackground = () => {
             ref={canvasRef}
             className="fixed top-0 left-0 w-full h-full pointer-events-none"
             style={{ zIndex: -1 }}
+            data-no-transition
         />
     );
 };
