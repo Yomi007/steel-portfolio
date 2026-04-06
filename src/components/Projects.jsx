@@ -58,7 +58,10 @@ Result:
         gallery: [
             "/HR folder/Hiring pipeline stage 2 HR.jpg",
             "/HR folder/Hiring pipeline stage 1 HR.jpg",
-            "/HR folder/airtable screenshot HR.jpg"
+            "/HR folder/airtable screenshot HR.jpg",
+            "/HR folder/daily summary hr.jpg",
+            "/HR folder/interview screenshot.jpg",
+            "/HR folder/slack notification hr.jpg"
         ],
         videoLink: "https://youtu.be/gnwoMSzclH8",
         link: "#"
