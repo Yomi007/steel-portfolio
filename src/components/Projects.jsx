@@ -37,6 +37,33 @@ const ROIDisplay = ({ roi }) => {
 
 const projects = [
     {
+        id: 5,
+        title: "AI-Powered Hiring System",
+        category: "HR Automation",
+        image: "/HR folder/Hiring pipeline stage 2 HR.jpg",
+        tools: ["n8n", "Airtable", "AI Screening", "Email Automation"],
+        roi: "15–20 hours saved monthly · 100% response rate",
+        description: "AI hiring system that automatically screens, scores, and responds to applicants daily — zero missed candidates.",
+        fullDescription: `A client was spending 3 days reviewing CVs and still losing top candidates.
+
+I built an AI-powered hiring system that automatically screens, scores, and responds to applicants daily.
+
+Candidates are evaluated on experience, relevance, and quality, then routed:
+• Top → Instant interview
+• Mid → Manager review
+• Low → Automated rejection
+
+Result:
+15–20 hours saved monthly, 100% response rate, zero missed candidates.`,
+        gallery: [
+            "/HR folder/Hiring pipeline stage 2 HR.jpg",
+            "/HR folder/Hiring pipeline stage 1 HR.jpg",
+            "/HR folder/airtable screenshot HR.jpg"
+        ],
+        videoLink: "https://youtu.be/gnwoMSzclH8",
+        link: "#"
+    },
+    {
         id: 1,
         title: "AI Risk Analyzer & Credit Scorer",
         category: "FinOps Automation",

@@ -63,6 +63,19 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
                                 <p className="text-stone-600 dark:text-stone-300 leading-relaxed text-lg whitespace-pre-wrap">
                                     {project.fullDescription || project.description}
                                 </p>
+                                {project.videoLink && (
+                                    <a
+                                        href={project.videoLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-full transition-colors duration-300 shadow-lg shadow-amber-500/25"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                        Watch Video Demo
+                                    </a>
+                                )}
                             </div>
 
                             <div className="flex flex-wrap gap-3 mb-10">
