@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import ParticleBackground from './components/ParticleBackground';
 import ErrorBoundary from './components/ErrorBoundary';
 import SmoothScroll from './components/SmoothScroll';
+import MusicPlayer from './components/MusicPlayer';
 import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
               <Contact />
             </main>
             <Footer />
+            <MusicPlayer />
           </div>
         </SmoothScroll>
       </ErrorBoundary>

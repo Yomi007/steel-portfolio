@@ -46,9 +46,9 @@ const skills = [
         borderColor: 'border-blue-200 dark:border-blue-500/20'
     },
     {
-        name: 'React & Tailwind',
-        icon: Code2,
-        description: 'Web development',
+        name: 'AI Agents',
+        icon: Brain,
+        description: 'Autonomous workflow agents',
         color: 'from-cyan-500/20 to-blue-500/20 dark:from-cyan-500/20 dark:to-blue-500/20',
         borderColor: 'border-cyan-200 dark:border-cyan-500/20'
     },
