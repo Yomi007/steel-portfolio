@@ -37,6 +37,48 @@ const ROIDisplay = ({ roi }) => {
 
 const projects = [
     {
+        id: 6,
+        title: "B2B Sales Prospecting Agent",
+        category: "Sales Automation",
+        image: "/B2B Sales Prospecting Agent/b2b sales prospecting agent main workflow.jpg",
+        tools: ["n8n", "Airtable", "Slack", "AI Agent", "Error Handling"],
+        roi: "20+ hours saved monthly · Fully automated prospecting",
+        description: "An intelligent B2B sales prospecting agent that automates lead research, qualification, and outreach — with built-in error handling and daily Slack summaries.",
+        fullDescription: `A fully automated B2B sales prospecting system built in n8n that handles the entire prospecting pipeline — from lead discovery to outreach.
+
+**The Workflow:**
+1. **Automated Prospecting**: The agent autonomously researches and identifies potential B2B leads based on defined criteria.
+2. **Smart Qualification**: Each prospect is scored and routed through a switch node for intelligent categorization.
+3. **Airtable Integration**: All qualified leads are logged and tracked in Airtable with full context and scoring data.
+4. **Slack Escalation**: High-priority prospects trigger instant Slack notifications for immediate follow-up.
+5. **Daily Summary**: Automated daily digest sent via Slack with prospecting activity and results.
+6. **Error Handling**: Robust error trigger workflow ensures no leads are lost — failures are caught, logged, and escalated.
+
+**Key Features:**
+• 🤖 Fully autonomous prospecting with AI-powered research
+• 📊 Structured lead data stored in Airtable
+• 🔔 Real-time Slack alerts for hot prospects
+• 📋 Daily summary reports for team visibility
+• ⚠️ Dedicated error handling workflow for reliability
+• 🔀 Switch node logic for intelligent lead routing
+
+**Impact:**
+• ⚡ 20+ hours saved monthly on manual prospecting
+• 🎯 Consistent lead qualification criteria
+• 📈 Zero missed prospects with error recovery
+• 💰 Increased pipeline velocity through instant outreach`,
+        gallery: [
+            "/B2B Sales Prospecting Agent/b2b sales prospecting agent main workflow.jpg",
+            "/B2B Sales Prospecting Agent/b2b sales prospecting agent - airtable.jpg",
+            "/B2B Sales Prospecting Agent/b2b sales prospecting agent - error handler.jpg",
+            "/B2B Sales Prospecting Agent/b2b sales prospecting agent slack escalation.jpg",
+            "/B2B Sales Prospecting Agent/b2b sales prospecting agent switch node.jpg",
+            "/B2B Sales Prospecting Agent/b2b sales prospecting daily summary.jpg"
+        ],
+        videoLink: "https://youtu.be/nKP5kXa_msQ",
+        link: "#"
+    },
+    {
         id: 5,
         title: "AI-Powered Hiring System",
         category: "HR Automation",
