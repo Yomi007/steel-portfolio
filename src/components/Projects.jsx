@@ -37,6 +37,53 @@ const ROIDisplay = ({ roi }) => {
 
 const projects = [
     {
+        id: 7,
+        title: "Autonomous AR Recovery Agent",
+        category: "FinOps Automation",
+        image: "/Automonous AR recovery agent/Conversational agent.jpg",
+        tools: ["n8n", "Airtable", "OpenRouter", "Gmail", "Slack", "AI Agent"],
+        roi: "4-5 hours saved daily · End-to-end autonomous recovery",
+        description: "An AI agent that autonomously handles the full accounts receivable recovery cycle — from proactive outreach to payment plans, disputes, and escalations — with no human involvement.",
+        fullDescription: `AR officers typically spend 4–5 hours daily on manual follow-ups, missing responses, forgetting clients, and leaving money uncollected. I built an AI agent that handles the entire recovery process end-to-end — autonomously.
+
+**Proactive Outreach:**
+Every morning at 8am, the system scans all overdue accounts from the database and sends each debtor a personalized outreach email with a direct link to the AR agent. No human involvement, no manual list checking — done in minutes.
+
+**Autonomous Conversations:**
+When a client clicks the link, the agent takes over. This is not a chatbot that sends generic reminders — it conducts the full recovery conversation and takes independent, controlled action:
+
+• Client states their invoice → Agent looks it up instantly from the live database
+• Understands *why* they haven't paid — cash flow, dispute, or simply forgot
+• Proposes a payment plan, logs the commitment, sends written confirmation, and notifies the AR team — all in under a minute
+• Bank details requested? Provided in seconds
+• Dispute raised? Logged, query team notified, confirmation sent
+• Too complex? Escalated to a human specialist with a full conversation summary
+
+**Boundary Awareness:**
+During development, I tested with a legal threat: *"I am not paying this invoice. My lawyers will be contacting you shortly."* The agent immediately stopped negotiating, escalated to the AR team, and sent the client a professional holding email. It knew exactly where its boundaries were.
+
+**Key Insight:**
+Domain knowledge is the difference between an agent that works and one that just responds. Any developer can connect tools — not every developer knows when to escalate, how to handle a dispute, and why a vague commitment is never good enough.
+
+**Impact:**
+• ⚡ 4–5 hours saved daily on manual follow-ups
+• 🤖 Fully autonomous recovery conversations
+• 📋 Automatic payment plan logging & confirmation
+• ⚖️ Intelligent dispute handling & escalation
+• 🛡️ Boundary-aware — knows when to stop and escalate
+• 📧 Proactive daily outreach with zero manual effort`,
+        gallery: [
+            "/Automonous AR recovery agent/Conversational agent.jpg",
+            "/Automonous AR recovery agent/conversational agent escalation.jpg",
+            "/Automonous AR recovery agent/dispute agent.jpg",
+            "/Automonous AR recovery agent/dispute screenshot rv.jpg",
+            "/Automonous AR recovery agent/payment plan screenshot rev.jpg",
+            "/Automonous AR recovery agent/Pro avctive outreach.jpg"
+        ],
+        videoLink: "https://youtu.be/YG4FPPidhvk",
+        link: "#"
+    },
+    {
         id: 6,
         title: "B2B Sales Prospecting Agent",
         category: "Sales Automation",
