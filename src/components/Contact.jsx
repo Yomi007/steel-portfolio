@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Mail, MapPin, CheckCircle, AlertCircle } from 'lucide-react';
+import { Send, Mail, MapPin, CheckCircle, AlertCircle, Calendar, ArrowRight, Clock, ShieldCheck } from 'lucide-react';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -31,7 +31,7 @@ const Contact = () => {
                 setStatus('error');
                 setTimeout(() => setStatus('idle'), 5000);
             }
-        } catch (error) {
+        } catch {
             setStatus('error');
             setTimeout(() => setStatus('idle'), 5000);
         }
@@ -42,42 +42,68 @@ const Contact = () => {
             {/* Background decoration */}
             <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-stone-100 dark:from-stone-900 to-transparent pointer-events-none" />
 
-            <div className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row gap-16">
+            <div className="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row gap-16 items-start">
 
-                {/* Contact Info */}
-                <div className="flex-1">
+                {/* Left Column: Direct Booking & Fast-Track */}
+                <div className="flex-1 w-full">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="font-heading text-6xl md:text-8xl font-bold text-stone-900 dark:text-white mb-8 tracking-tighter">
-                            Let's work <br />
-                            <span className="text-stone-300 dark:text-stone-700">together.</span>
+                        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-400 text-xs font-semibold uppercase tracking-wider mb-6">
+                            <Clock size={14} />
+                            Rapid Engagement
+                        </div>
+
+                        <h2 className="font-heading text-5xl md:text-7xl font-bold text-stone-900 dark:text-white mb-6 tracking-tight">
+                            Let's eliminate your <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-600">
+                                bottlenecks.
+                            </span>
                         </h2>
 
-                        <p className="text-stone-500 dark:text-stone-400 text-xl mb-12 max-w-md">
-                            Have a project in mind? I'm always open to discussing new ideas and opportunities.
+                        <p className="text-stone-600 dark:text-stone-300 text-lg mb-8 max-w-lg leading-relaxed">
+                            Whether you need an autonomous AR recovery agent, an end-to-end FinOps overhaul, or custom n8n/Make workflows, let's connect.
                         </p>
 
-                        <div className="space-y-6">
+                        {/* Fast Track Booking Box */}
+                        <div className="p-6 rounded-3xl bg-gradient-to-br from-amber-500/10 via-amber-500/5 to-transparent border border-amber-500/25 dark:border-amber-500/20 mb-8 backdrop-blur-sm">
+                            <div className="flex items-center gap-2 text-amber-700 dark:text-amber-400 font-bold text-sm mb-2">
+                                <Calendar size={18} />
+                                <span>Fast-Track: 15-Minute Diagnostic Call</span>
+                            </div>
+                            <p className="text-xs text-stone-600 dark:text-stone-400 mb-4 leading-relaxed">
+                                Pick a time that suits you. We will tear down your current manual workflow and pinpoint 2–3 high-ROI automation opportunities.
+                            </p>
+                            <a
+                                href="https://calendly.com/yomiautomates"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-xl text-sm transition-all shadow-md shadow-amber-500/20 hover:gap-3"
+                            >
+                                Open Calendly Schedule <ArrowRight size={16} />
+                            </a>
+                        </div>
+
+                        <div className="space-y-4">
                             <a href="mailto:yomiautomates@gmail.com" className="flex items-center gap-4 text-stone-900 dark:text-white hover:text-amber-600 dark:hover:text-amber-400 transition-colors group">
-                                <div className="p-4 bg-stone-100 dark:bg-stone-900 rounded-full border border-stone-200 dark:border-white/5 group-hover:border-amber-500/50 transition-colors">
-                                    <Mail size={24} />
+                                <div className="p-3.5 bg-stone-100 dark:bg-stone-900 rounded-2xl border border-stone-200 dark:border-white/5 group-hover:border-amber-500/50 transition-colors">
+                                    <Mail size={20} />
                                 </div>
                                 <div>
-                                    <p className="text-sm text-stone-400 dark:text-stone-500">Email Me</p>
-                                    <p className="text-lg font-medium">yomiautomates@gmail.com</p>
+                                    <p className="text-xs text-stone-400 dark:text-stone-500">Email Directly</p>
+                                    <p className="text-base font-medium">yomiautomates@gmail.com</p>
                                 </div>
                             </a>
 
                             <div className="flex items-center gap-4 text-stone-900 dark:text-white">
-                                <div className="p-4 bg-stone-100 dark:bg-stone-900 rounded-full border border-stone-200 dark:border-white/5">
-                                    <MapPin size={24} />
+                                <div className="p-3.5 bg-stone-100 dark:bg-stone-900 rounded-2xl border border-stone-200 dark:border-white/5">
+                                    <ShieldCheck size={20} className="text-emerald-500" />
                                 </div>
                                 <div>
-                                    <p className="text-sm text-stone-400 dark:text-stone-500">Location</p>
-                                    <p className="text-lg font-medium">Remote / Worldwide</p>
+                                    <p className="text-xs text-stone-400 dark:text-stone-500">Response Guarantee</p>
+                                    <p className="text-base font-medium">Replies within 24 business hours</p>
                                 </div>
                             </div>
                         </div>

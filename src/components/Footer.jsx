@@ -13,7 +13,7 @@ const Footer = () => {
                         href="https://calendly.com/yomiautomates"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-8 py-3 bg-stone-900 dark:bg-white text-stone-50 dark:text-stone-950 rounded-full font-medium hover:bg-stone-800 dark:hover:bg-stone-200 transition-colors flex items-center gap-2"
+                        className="px-8 py-3.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white rounded-full font-semibold shadow-lg shadow-amber-500/25 transition-all flex items-center gap-2"
                     >
                         Book a 15-min Audit <ArrowRight size={18} />
                     </a>
@@ -21,7 +21,7 @@ const Footer = () => {
                         href="https://www.linkedin.com/in/amao-abayomi-68a6b0185/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-8 py-3 text-stone-900 dark:text-white border border-stone-200 dark:border-white/10 rounded-full font-medium hover:bg-stone-100 dark:hover:bg-white/5 transition-colors"
+                        className="px-8 py-3.5 text-stone-900 dark:text-white border border-stone-200 dark:border-white/10 rounded-full font-medium hover:bg-stone-100 dark:hover:bg-white/5 transition-colors"
                     >
                         Connect on LinkedIn
                     </a>
@@ -29,15 +29,22 @@ const Footer = () => {
 
                 <div className="w-full pt-8 border-t border-stone-200 dark:border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
                     <p className="text-stone-400 dark:text-stone-500 text-sm">
-                        © {new Date().getFullYear()} Abayomi Portfolio. All rights reserved.
+                        © {new Date().getFullYear()} Abayomi. All rights reserved.
                     </p>
 
                     <div className="flex items-center gap-6">
+                        <a
+                            href="mailto:yomiautomates@gmail.com"
+                            className="text-stone-400 dark:text-stone-500 hover:text-stone-900 dark:hover:text-white transition-colors text-sm"
+                        >
+                            yomiautomates@gmail.com
+                        </a>
                         <a
                             href="https://www.linkedin.com/in/amao-abayomi-68a6b0185/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-stone-400 dark:text-stone-500 hover:text-stone-900 dark:hover:text-white transition-colors"
+                            aria-label="LinkedIn Profile"
                         >
                             <Linkedin size={20} />
                         </a>

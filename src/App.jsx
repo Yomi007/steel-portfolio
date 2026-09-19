@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
+import RoiCalculator from './components/RoiCalculator';
 import About from './components/About';
 import Skills from './components/Skills';
 import Testimonials from './components/Testimonials';
@@ -24,6 +25,7 @@ function App() {
             <main>
               <Hero />
               <Projects />
+              <RoiCalculator />
               <Skills />
               <Testimonials />
               <About />

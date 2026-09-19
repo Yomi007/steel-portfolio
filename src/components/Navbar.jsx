@@ -9,13 +9,15 @@ const Navbar = () => {
     const { isDark, toggleTheme } = useTheme();
 
     const links = [
-        { name: 'Work', href: '#work' },
+        { name: 'Workflows', href: '#work' },
+        { name: 'ROI Estimator', href: '#calculator' },
+        { name: 'Stack', href: '#skills' },
         { name: 'About', href: '#about' },
         { name: 'Contact', href: '#contact' },
     ];
 
     useEffect(() => {
-        const sectionIds = ['work', 'about', 'contact'];
+        const sectionIds = ['work', 'calculator', 'skills', 'about', 'contact'];
 
         const observer = new IntersectionObserver(
             (entries) => {
@@ -48,19 +50,22 @@ const Navbar = () => {
 
             <nav className="fixed top-0 left-0 right-0 z-50 bg-stone-50/80 dark:bg-stone-950/80 backdrop-blur-md border-b border-stone-200 dark:border-white/5">
                 <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-                    <a href="#" className="font-heading font-bold text-2xl tracking-tighter text-stone-900 dark:text-white">
-                        ABAYOMI
+                    <a href="#" className="font-heading font-bold text-2xl tracking-tighter text-stone-900 dark:text-white flex items-center gap-2">
+                        <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-500 to-amber-600 text-white flex items-center justify-center font-black text-base shadow-md shadow-amber-500/20">
+                            A
+                        </span>
+                        <span>ABAYOMI</span>
                     </a>
 
                     {/* Desktop Menu */}
-                    <div className="hidden md:flex items-center gap-8">
+                    <div className="hidden md:flex items-center gap-6">
                         {links.map((link) => (
                             <a
                                 key={link.name}
                                 href={link.href}
-                                className={`text-sm font-medium transition-colors ${
+                                className={`text-xs lg:text-sm font-medium transition-colors ${
                                     activeSection === link.href.slice(1)
-                                        ? 'text-stone-900 dark:text-white'
+                                        ? 'text-stone-900 dark:text-white font-semibold'
                                         : 'text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white'
                                 }`}
                             >
@@ -74,6 +79,16 @@ const Navbar = () => {
                                 )}
                             </a>
                         ))}
+
+                        {/* Direct Booking CTA */}
+                        <a
+                            href="https://calendly.com/yomiautomates"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white rounded-full text-xs font-semibold shadow-md shadow-amber-500/20 transition-all ml-2"
+                        >
+                            Book Audit
+                        </a>
 
                         {/* Theme Toggle */}
                         <button

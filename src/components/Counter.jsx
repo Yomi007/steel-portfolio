@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
-import { useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import { useInView, useMotionValue, useSpring } from 'framer-motion';
 
-const Counter = ({ from = 0, to, duration = 1.5, suffix = '', prefix = '' }) => {
+const Counter = ({ from = 0, to, suffix = '', prefix = '' }) => {
     const ref = useRef(null);
     const motionValue = useMotionValue(from);
     const springValue = useSpring(motionValue, {

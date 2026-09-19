@@ -116,46 +116,6 @@ const MusicPlayer = () => {
 
     const track = tracks[currentTrack];
 
-    // Update time
-    useEffect(() => {
-        const audio = audioRef.current;
-        if (!audio) return;
-
-        const updateTime = () => setCurrentTime(audio.currentTime);
-        const updateDuration = () => setDuration(audio.duration);
-        const handleEnded = () => handleNext();
-
-        audio.addEventListener('timeupdate', updateTime);
-        audio.addEventListener('loadedmetadata', updateDuration);
-        audio.addEventListener('ended', handleEnded);
-
-        return () => {
-            audio.removeEventListener('timeupdate', updateTime);
-            audio.removeEventListener('loadedmetadata', updateDuration);
-            audio.removeEventListener('ended', handleEnded);
-        };
-    }, [currentTrack, shuffle]);
-
-    // Handle volume
-    useEffect(() => {
-        if (audioRef.current) {
-            audioRef.current.volume = isMuted ? 0 : volume;
-        }
-    }, [volume, isMuted]);
-
-    const togglePlay = useCallback(() => {
-        const audio = audioRef.current;
-        if (!audio) return;
-
-        if (isPlaying) {
-            audio.pause();
-        } else {
-            audio.play().catch(() => {});
-        }
-        setIsPlaying(!isPlaying);
-        if (isMinimized) setIsMinimized(false);
-    }, [isPlaying, isMinimized]);
-
     const handleNext = useCallback(() => {
         if (shuffle) {
             let next;
@@ -177,7 +137,7 @@ const MusicPlayer = () => {
     const handlePrev = useCallback(() => {
         if (currentTime > 3) {
             // Restart current track if more than 3 seconds in
-            audioRef.current.currentTime = 0;
+            if (audioRef.current) audioRef.current.currentTime = 0;
         } else {
             setCurrentTrack((prev) => (prev - 1 + tracks.length) % tracks.length);
             setCurrentTime(0);
@@ -188,6 +148,46 @@ const MusicPlayer = () => {
             }, 100);
         }
     }, [currentTime, isPlaying]);
+
+    const togglePlay = useCallback(() => {
+        const audio = audioRef.current;
+        if (!audio) return;
+
+        if (isPlaying) {
+            audio.pause();
+        } else {
+            audio.play().catch(() => {});
+        }
+        setIsPlaying(!isPlaying);
+        if (isMinimized) setIsMinimized(false);
+    }, [isPlaying, isMinimized]);
+
+    // Update time & ended listener
+    useEffect(() => {
+        const audio = audioRef.current;
+        if (!audio) return;
+
+        const updateTime = () => setCurrentTime(audio.currentTime);
+        const updateDuration = () => setDuration(audio.duration);
+        const handleEnded = () => handleNext();
+
+        audio.addEventListener('timeupdate', updateTime);
+        audio.addEventListener('loadedmetadata', updateDuration);
+        audio.addEventListener('ended', handleEnded);
+
+        return () => {
+            audio.removeEventListener('timeupdate', updateTime);
+            audio.removeEventListener('loadedmetadata', updateDuration);
+            audio.removeEventListener('ended', handleEnded);
+        };
+    }, [handleNext]);
+
+    // Handle volume
+    useEffect(() => {
+        if (audioRef.current) {
+            audioRef.current.volume = isMuted ? 0 : volume;
+        }
+    }, [volume, isMuted]);
 
     const handleSeek = (e) => {
         const bar = progressRef.current;
@@ -217,48 +217,31 @@ const MusicPlayer = () => {
     // Minimized floating button
     if (isMinimized) {
         return (
-            <div className="fixed bottom-6 right-6 z-50">
-                {/* Pulse rings */}
-                <motion.div
-                    className="absolute inset-0 rounded-full bg-amber-500/20"
-                    animate={{
-                        scale: [1, 1.8, 2.2],
-                        opacity: [0.4, 0.15, 0],
-                    }}
-                    transition={{
-                        duration: 2.5,
-                        repeat: Infinity,
-                        ease: "easeOut",
-                    }}
-                />
-                <motion.div
-                    className="absolute inset-0 rounded-full bg-amber-500/15"
-                    animate={{
-                        scale: [1, 1.5, 1.8],
-                        opacity: [0.3, 0.1, 0],
-                    }}
-                    transition={{
-                        duration: 2.5,
-                        repeat: Infinity,
-                        ease: "easeOut",
-                        delay: 0.4,
-                    }}
-                />
+            <div className="fixed bottom-6 right-6 z-40">
                 <motion.button
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
-                    transition={{ delay: 1, type: "spring", stiffness: 200 }}
+                    transition={{ delay: 0.8, type: "spring", stiffness: 200 }}
                     onClick={() => setIsMinimized(false)}
-                    className="relative w-14 h-14 rounded-full bg-gradient-to-br from-amber-500 to-amber-600 text-white shadow-lg shadow-amber-500/30 flex items-center justify-center hover:shadow-amber-500/50 hover:scale-110 transition-all duration-300"
-                    title="Open Music Player"
+                    className="group flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-stone-900/90 dark:bg-stone-900/95 text-white border border-stone-700/60 dark:border-white/10 shadow-2xl backdrop-blur-md hover:border-amber-500/50 hover:scale-105 active:scale-95 transition-all text-xs font-medium cursor-pointer"
+                    title="Open Focus Audio Station"
                     id="music-player-toggle"
                 >
-                    <motion.div
-                        animate={{ rotate: isPlaying ? 360 : 0 }}
-                        transition={{ duration: 3, repeat: isPlaying ? Infinity : 0, ease: "linear" }}
-                    >
+                    <div className="w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center">
                         <MusicNoteIcon />
-                    </motion.div>
+                    </div>
+                    <span className="text-stone-300 group-hover:text-white transition-colors max-w-[120px] truncate">
+                        {isPlaying ? track.title : "Focus Grooves"}
+                    </span>
+                    {isPlaying ? (
+                        <div className="flex items-end gap-0.5 h-3">
+                            <span className="w-0.5 h-full bg-amber-400 rounded-full animate-pulse" />
+                            <span className="w-0.5 h-2/3 bg-amber-400 rounded-full animate-pulse delay-75" />
+                            <span className="w-0.5 h-4/5 bg-amber-400 rounded-full animate-pulse delay-150" />
+                        </div>
+                    ) : (
+                        <span className="text-[10px] text-amber-400/80 font-mono">▶ Play</span>
+                    )}
                 </motion.button>
             </div>
         );

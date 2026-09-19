@@ -39,7 +39,7 @@ const About = () => {
                             </span>
                         </h2>
                         <p className="text-stone-500 dark:text-stone-400 text-lg mb-8 leading-relaxed">
-                            I am a Workflow Automation Specialist and Credit Control Expert. My mission is to eliminate manual data entry and repetitive tasks, empowering teams to focus on high-value strategic work. I turn chaos into structured, automated efficiency.
+                            I am a Workflow Automation Architect and FinOps Specialist with deep domain expertise in autonomous AI agents, credit control recovery, and revenue operations. My mission is to eliminate repetitive operational toil, protect cash flow, and build self-driving systems that run 24/7 with zero silent errors.
                         </p>
 
                         <div className="space-y-6">
@@ -63,21 +63,30 @@ const About = () => {
                             ))}
                         </div>
 
-                        {/* Resume Download Button */}
-                        <motion.a
-                            href="/resume.pdf"
-                            download
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            viewport={{ once: true }}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="inline-flex items-center gap-2 px-6 py-3 bg-stone-100 dark:bg-white/5 hover:bg-stone-200 dark:hover:bg-white/10 border border-stone-200 dark:border-white/10 hover:border-stone-300 dark:hover:border-white/20 rounded-full text-stone-900 dark:text-white font-medium transition-all mt-8"
-                            aria-label="Download Resume PDF"
-                        >
-                            <Download size={18} />
-                            Download Resume
-                        </motion.a>
+                        {/* Actions */}
+                        <div className="flex flex-wrap items-center gap-4 mt-8">
+                            <motion.a
+                                href="https://www.linkedin.com/in/amao-abayomi-68a6b0185/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="inline-flex items-center gap-2 px-6 py-3 bg-stone-900 dark:bg-white text-stone-50 dark:text-stone-900 rounded-full font-semibold transition-all text-sm"
+                            >
+                                Connect on LinkedIn
+                            </motion.a>
+
+                            <motion.a
+                                href="mailto:yomiautomates@gmail.com?subject=Resume%20Request%20-%20Workflow%20Automation"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="inline-flex items-center gap-2 px-6 py-3 bg-stone-100 dark:bg-white/5 hover:bg-stone-200 dark:hover:bg-white/10 border border-stone-200 dark:border-white/10 hover:border-stone-300 dark:hover:border-white/20 rounded-full text-stone-900 dark:text-white font-medium transition-all text-sm"
+                                aria-label="Request Full Resume"
+                            >
+                                <Download size={16} />
+                                Request Full CV
+                            </motion.a>
+                        </div>
                     </motion.div>
                 </div>
 
